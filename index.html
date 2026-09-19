@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Meco Construction & Infratech Private Limited — infrastructure and building-completion contractor based in Manvi, Raichur district, Karnataka.">
+<title>Meco Construction &amp; Infratech</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%97%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #16181a;
+    --surface: #1e2124;
+    --surface-2: #262a2d;
+    --border: #383d41;
+    --text: #ece8df;
+    --text-dim: #9aa0a5;
+    --accent: #e8720c;
+    --accent-ink: #1a1000;
+    --accent-2: #c8a24a;
+    --shadow: 0 18px 40px -20px rgba(0,0,0,0.6);
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #f4f1e9;
+      --surface: #ffffff;
+      --surface-2: #eae5d7;
+      --border: #d9d2c0;
+      --text: #1b1d1f;
+      --text-dim: #5b6167;
+      --accent: #c85a00;
+      --accent-ink: #fff7ec;
+      --accent-2: #7c5e1e;
+      --shadow: 0 18px 40px -22px rgba(30,20,0,0.25);
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 {
+    font-family: 'Oswald', 'Arial Narrow', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    text-wrap: balance;
+    margin: 0;
+    color: var(--text);
+  }
+  .mono {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  }
+  .label {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  a { color: inherit; }
+  img { max-width: 100%; }
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding-inline: clamp(20px, 5vw, 48px);
+  }
+  .stripe {
+    height: 6px;
+    background: repeating-linear-gradient(
+      -45deg,
+      var(--accent) 0 14px,
+      var(--surface) 14px 28px
+    );
+  }
+
+  /* ---------- Nav ---------- */
+  header.site {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 14px;
+    gap: 16px;
+  }
+  .wordmark {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .wordmark .dot { color: var(--accent); }
+  .wordmark small {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 400;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+  nav.links {
+    display: flex;
+    gap: clamp(14px, 2.4vw, 30px);
+    font-size: 0.86rem;
+    font-weight: 500;
+  }
+  nav.links a {
+    text-decoration: none;
+    color: var(--text-dim);
+    padding-block: 4px;
+    border-bottom: 2px solid transparent;
+    transition: color .15s, border-color .15s;
+  }
+  nav.links a:hover, nav.links a:focus-visible { color: var(--text); border-color: var(--accent); }
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 9px 16px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .menu-btn {
+    display: none;
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text);
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+  #nav-links { display: contents; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+    background:
+      linear-gradient(180deg, transparent 0%, var(--bg) 92%),
+      repeating-linear-gradient(0deg, color-mix(in srgb, var(--text) 5%, transparent) 0 1px, transparent 1px 64px),
+      repeating-linear-gradient(90deg, color-mix(in srgb, var(--text) 5%, transparent) 0 1px, transparent 1px 64px);
+  }
+  .hero-inner {
+    padding-block: clamp(52px, 9vw, 108px) clamp(40px, 6vw, 72px);
+    display: grid;
+    gap: 28px;
+  }
+  .hero .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .hero .eyebrow .bar { width: 26px; height: 2px; background: var(--accent); }
+  .hero h1 {
+    font-size: clamp(2.5rem, 6.4vw, 5rem);
+    line-height: 0.98;
+    max-width: 16ch;
+  }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero .lede {
+    max-width: 58ch;
+    font-size: clamp(1rem, 1.6vw, 1.15rem);
+    color: var(--text-dim);
+  }
+  .hero .coords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 28px;
+    padding-top: 6px;
+  }
+  .coord {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+  }
+  .coord b { color: var(--text); font-weight: 500; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; padding-top: 8px; }
+  .btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 13px 22px;
+    border-radius: 2px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .btn-primary { background: var(--accent); color: var(--accent-ink); }
+  .btn-ghost { border: 1px solid var(--border); color: var(--text); }
+  .btn-ghost:hover { border-color: var(--accent); }
+
+  /* ---------- Sections ---------- */
+  section { padding-block: clamp(52px, 8vw, 92px); }
+  .sheet-no {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+  }
+  .sheet-no b { color: var(--accent); }
+  .section-head {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: clamp(28px, 4vw, 44px);
+    max-width: 62ch;
+  }
+  .section-head h2 { font-size: clamp(1.7rem, 3vw, 2.5rem); }
+  .section-head p { color: var(--text-dim); margin: 0; }
+
+  /* About */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: clamp(28px, 4vw, 56px);
+    align-items: start;
+  }
+  .about-grid p { color: var(--text-dim); max-width: 60ch; }
+  .about-grid p + p { margin-top: 14px; }
+  .spec-plate {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    box-shadow: var(--shadow);
+  }
+  .spec-plate .plate-head {
+    padding: 14px 18px;
+    border-bottom: 1px dashed var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .spec-plate dl {
+    margin: 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px 18px;
+    padding: 18px;
+  }
+  .spec-plate dt {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+  .spec-plate dd { margin: 0; font-weight: 500; }
+
+  /* Leadership */
+  .leader-grid {
+    display: grid;
+    grid-template-columns: 0.62fr 1.38fr;
+    gap: clamp(28px, 4vw, 56px);
+    align-items: start;
+  }
+  .leader-photo {
+    position: relative;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    padding: 10px;
+    box-shadow: var(--shadow);
+  }
+  .leader-photo .frame {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+  }
+  .leader-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(0.12) contrast(1.03);
+  }
+  .leader-photo .tick {
+    position: absolute;
+    width: 16px; height: 16px;
+    border: 2px solid var(--accent);
+  }
+  .leader-photo .tick.tl { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+  .leader-photo .tick.br { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+  .leader-photo .cap {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 4px 2px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+  .leader-body h3 { font-size: clamp(1.6rem, 2.6vw, 2.1rem); margin-bottom: 4px; }
+  .leader-title { margin-bottom: 16px; }
+  .leader-body p { color: var(--text-dim); max-width: 62ch; }
+  .leader-body p + p { margin-top: 14px; }
+  .leader-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+  .leader-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--border);
+    border-left: 2px solid var(--accent-2);
+    padding: 8px 12px;
+    font-size: 0.84rem;
+  }
+  .leader-badge b { font-weight: 600; }
+
+  /* Services */
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .service-card {
+    background: var(--surface);
+    padding: 26px 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .service-card .idx { font-family: 'IBM Plex Mono', monospace; color: var(--accent); font-size: 0.85rem; }
+  .service-card h3 { font-size: 1.2rem; }
+  .service-card p { color: var(--text-dim); margin: 0; font-size: 0.94rem; }
+  .service-card .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 8px; }
+  .tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 3px 8px;
+  }
+
+  /* Process */
+  .process {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+  }
+  .process::before {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 0; right: 0;
+    height: 1px;
+    background: var(--border);
+  }
+  .step { position: relative; padding-right: 20px; }
+  .step .peg {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 2px solid var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--accent);
+    position: relative; z-index: 1;
+    margin-bottom: 16px;
+  }
+  .step h3 { font-size: 1.02rem; margin-bottom: 6px; }
+  .step p { color: var(--text-dim); font-size: 0.88rem; margin: 0; max-width: 26ch; }
+
+  /* Stat strip */
+  .stat-strip {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .stat-strip .wrap {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .stat {
+    padding: 26px 20px;
+    border-left: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .stat:first-child { border-left: none; }
+  .stat .n { font-family: 'Oswald', sans-serif; font-size: clamp(1.5rem, 2.6vw, 2.1rem); color: var(--accent); font-variant-numeric: tabular-nums; }
+  .stat .k { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-dim); }
+
+  /* Projects */
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  .project-card {
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+    background: var(--surface);
+  }
+  .project-art {
+    aspect-ratio: 4 / 3;
+    position: relative;
+    background:
+      linear-gradient(160deg, var(--surface-2), var(--surface));
+    display: flex;
+    align-items: flex-end;
+  }
+  .project-art::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(-45deg, transparent 0 18px, color-mix(in srgb, var(--accent) 14%, transparent) 18px 20px);
+    opacity: .5;
+  }
+  .project-art .tagline {
+    position: relative;
+    margin: 14px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: color-mix(in srgb, var(--bg) 70%, transparent);
+    color: var(--text);
+    padding: 4px 8px;
+    border: 1px solid var(--border);
+  }
+  .project-body { padding: 16px 18px 20px; }
+  .project-body h3 { font-size: 1.02rem; margin-bottom: 6px; }
+  .project-body p { margin: 0; color: var(--text-dim); font-size: 0.86rem; }
+  .sample-note {
+    margin-top: 22px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.76rem;
+    color: var(--text-dim);
+    border-left: 2px solid var(--accent-2);
+    padding-left: 12px;
+  }
+
+  /* Contact */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: clamp(28px, 4vw, 56px);
+  }
+  .contact-list { display: flex; flex-direction: column; gap: 20px; }
+  .contact-item { display: flex; gap: 14px; }
+  .contact-item .ic {
+    width: 38px; height: 38px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent);
+    flex-shrink: 0;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  .contact-item h3 { font-family: 'IBM Plex Sans', sans-serif; text-transform: none; font-size: 0.92rem; font-weight: 600; letter-spacing: 0; margin-bottom: 3px; }
+  .contact-item p { margin: 0; color: var(--text-dim); font-size: 0.92rem; }
+  .contact-item .ph { color: var(--accent-2); }
+
+  form.quote {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: clamp(20px, 3vw, 32px);
+    box-shadow: var(--shadow);
+  }
+  form.quote .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  form.quote .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+  form.quote label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+  form.quote input, form.quote select, form.quote textarea {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    color: var(--text);
+    padding: 10px 12px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.94rem;
+  }
+  form.quote input:focus, form.quote select:focus, form.quote textarea:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+  }
+  form.quote textarea { resize: vertical; min-height: 90px; }
+  form.quote button {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+  }
+  .form-note { margin-top: 12px; font-size: 0.78rem; color: var(--text-dim); }
+
+  /* Footer */
+  footer.site {
+    border-top: 1px solid var(--border);
+    padding-block: 32px;
+  }
+  .footer-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+  }
+  .footer-grid .legal { font-size: 0.82rem; color: var(--text-dim); max-width: 46ch; }
+  .footer-grid .legal b { color: var(--text); }
+  .footer-meta { display: flex; gap: 22px; flex-wrap: wrap; }
+  .footer-meta div { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; color: var(--text-dim); }
+  .footer-meta div b { display: block; color: var(--text); font-size: 0.82rem; font-weight: 500; margin-bottom: 2px; }
+
+  @media (max-width: 880px) {
+    .about-grid, .contact-grid { grid-template-columns: 1fr; }
+    .service-grid { grid-template-columns: 1fr 1fr; }
+    .process { grid-template-columns: 1fr 1fr; row-gap: 28px; }
+    .process::before { display: none; }
+    .project-grid { grid-template-columns: 1fr 1fr; }
+    .stat-strip .wrap { grid-template-columns: 1fr 1fr; }
+    .stat:nth-child(3) { border-left: none; }
+  }
+  @media (max-width: 700px) {
+    .menu-btn { display: block; }
+    #nav-links {
+      display: none;
+      position: fixed; inset: 60px 0 auto 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      flex-direction: column;
+      padding: 18px clamp(20px,5vw,48px) 26px;
+      gap: 16px;
+    }
+    #nav-links.open { display: flex; }
+    nav.links { flex-direction: column; gap: 14px; }
+    .nav-cta { align-self: flex-start; }
+    .service-grid { grid-template-columns: 1fr; }
+    .process { grid-template-columns: 1fr; }
+    .project-grid { grid-template-columns: 1fr; }
+    form.quote .row { grid-template-columns: 1fr; }
+    .stat-strip .wrap { grid-template-columns: 1fr 1fr; }
+    .stat:nth-child(2n+1) { border-left: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap navbar">
+    <a href="#top" class="wordmark">MECO<span class="dot">.</span><small>Construction &amp; Infratech</small></a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">&#9776;</button>
+    <div id="nav-links">
+      <nav class="links">
+        <a href="#about">About</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#services">Services</a>
+        <a href="#approach">Approach</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="nav-cta" href="#contact" style="margin-top:2px;">Request a Quote</a>
+    </div>
+  </div>
+</header>
+<div class="stripe"></div>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="eyebrow">
+        <span class="bar"></span>
+        <span class="label">Infrastructure &amp; Building Completion</span>
+      </div>
+      <h1>We build the roads<br>and structures of<br><em>North Karnataka.</em></h1>
+      <p class="lede">Meco Construction &amp; Infratech Private Limited executes road, highway and building-completion contracts for public and private clients, operating out of Manvi in Raichur district, Karnataka.</p>
+      <div class="coords">
+        <span class="coord">EST. <b>SEP 2021</b></span>
+        <span class="coord">HQ / BRANCH <b>MANVI, RAICHUR DIST.</b></span>
+        <span class="coord">STATE <b>KARNATAKA, IN</b></span>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact">Request a Quote &#8594;</a>
+        <a class="btn btn-ghost" href="#services">View Capabilities</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about-grid">
+      <div>
+        <p class="sheet-no">SHEET <b>01</b> / 06 &mdash; COMPANY PROFILE</p>
+        <div class="section-head">
+          <h2>About Meco</h2>
+        </div>
+        <p>Meco Construction &amp; Infratech Private Limited is an active infrastructure and building-completion company, incorporated in September 2021. The company takes on major infrastructure and construction contracts, with a key operating branch in Manvi, a taluk in Raichur district, Karnataka.</p>
+        <p>Our work spans the full contracting cycle &mdash; from site survey and mobilization through execution and handover &mdash; on road, highway and building works across the region.</p>
+      </div>
+      <div class="spec-plate">
+        <div class="plate-head">
+          <span class="label" style="color:var(--text-dim);">Company Data</span>
+          <span class="mono" style="font-size:.72rem;color:var(--text-dim);">REV. A</span>
+        </div>
+        <dl>
+          <dt>Legal Name</dt>
+          <dd>Meco Construction &amp; Infratech Private Limited</dd>
+          <dt>Incorporated</dt>
+          <dd>September 2021</dd>
+          <dt>Entity Type</dt>
+          <dd>Private Limited Company</dd>
+          <dt>Sector</dt>
+          <dd>Infrastructure &amp; Building Completion</dd>
+          <dt>Branch Office</dt>
+          <dd>Raichur Road, Manvi, Karnataka</dd>
+          <dt>CIN</dt>
+          <dd>U45XXX KA2021PTC0XXXXX <span style="color:var(--text-dim);">(sample &mdash; confirm on MCA)</span></dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="leadership" style="background:var(--surface);border-block:1px solid var(--border);">
+    <div class="wrap">
+      <p class="sheet-no">SHEET <b>02</b> / 06 &mdash; LEADERSHIP</p>
+      <div class="section-head">
+        <h2>Leadership</h2>
+      </div>
+      <div class="leader-grid">
+        <div class="leader-photo">
+          <div class="frame">
+            <span class="tick tl"></span>
+            <img src="assets/m-eranna.jpg" alt="M. Eranna, Founder &amp; Managing Director of Meco Construction &amp; Infratech Private Limited">
+            <span class="tick br"></span>
+          </div>
+          <div class="cap"><span>M. ERANNA</span><span>MANVI, KA</span></div>
+        </div>
+        <div class="leader-body">
+          <h3>M. Eranna</h3>
+          <p class="label leader-title">Founder &amp; Managing Director</p>
+          <p>M. Eranna is the Founder &amp; Managing Director of Meco Construction &amp; Infratech Private Limited. He is an Indian contractor and business owner whose firm specializes in building completion, construction and infrastructure development, operating out of the company's branch office on Raichur Road, Manvi, Karnataka, since the company's incorporation in September 2021.</p>
+          <p>Beyond the company, he founded and manages the M. Eranna Foundation, based in Manvi, which carries out local social work and free public services in the region.</p>
+          <div class="leader-badges">
+            <div class="leader-badge">&#9670;&nbsp;<span><b>Meco Construction &amp; Infratech Pvt. Ltd.</b> &mdash; Founder &amp; Managing Director</span></div>
+            <div class="leader-badge">&#9679;&nbsp;<span><b>M. Eranna Foundation</b> &mdash; Founder, Manvi</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" style="background:var(--surface);border-block:1px solid var(--border);">
+    <div class="wrap">
+      <p class="sheet-no">SHEET <b>03</b> / 06 &mdash; CAPABILITIES</p>
+      <div class="section-head">
+        <h2>What we build</h2>
+        <p>Core contracting lines delivered by our engineering and site teams.</p>
+      </div>
+    </div>
+    <div class="service-grid">
+      <div class="service-card">
+        <span class="idx">A1</span>
+        <h3>Road &amp; Highway Construction</h3>
+        <p>Formation, sub-base and bituminous works for rural, district and state road contracts, including widening and resurfacing.</p>
+        <div class="tags"><span class="tag">GSB / WBM</span><span class="tag">Bituminous</span><span class="tag">Drainage</span></div>
+      </div>
+      <div class="service-card">
+        <span class="idx">A2</span>
+        <h3>Building Construction &amp; Completion</h3>
+        <p>RCC structural work through finishing, fit-out and handover for residential, institutional and public buildings.</p>
+        <div class="tags"><span class="tag">RCC</span><span class="tag">Finishing</span><span class="tag">Handover</span></div>
+      </div>
+      <div class="service-card">
+        <span class="idx">A3</span>
+        <h3>General Civil &amp; Government Contracting</h3>
+        <p>Execution of tendered public-works and infrastructure contracts, from DPR-stage coordination to site delivery.</p>
+        <div class="tags"><span class="tag">Tendered Works</span><span class="tag">Public Infra</span><span class="tag">Site Delivery</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="approach">
+    <div class="wrap">
+      <p class="sheet-no">SHEET <b>04</b> / 06 &mdash; PROJECT LIFECYCLE</p>
+      <div class="section-head">
+        <h2>How a contract moves</h2>
+        <p>Four stages, from survey to handover.</p>
+      </div>
+      <div class="process">
+        <div class="step">
+          <div class="peg">01</div>
+          <h3>Survey &amp; DPR</h3>
+          <p>Site survey, scoping and detailed project reporting.</p>
+        </div>
+        <div class="step">
+          <div class="peg">02</div>
+          <h3>Tender &amp; Mobilization</h3>
+          <p>Contract award, resourcing and site mobilization.</p>
+        </div>
+        <div class="step">
+          <div class="peg">03</div>
+          <h3>Execution</h3>
+          <p>Construction works under site engineering supervision.</p>
+        </div>
+        <div class="step">
+          <div class="peg">04</div>
+          <h3>Quality &amp; Handover</h3>
+          <p>Inspection, quality sign-off and formal handover.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stat-strip">
+    <div class="wrap">
+      <div class="stat"><span class="n">2021</span><span class="k">Incorporated</span></div>
+      <div class="stat"><span class="n">KA</span><span class="k">Karnataka-based</span></div>
+      <div class="stat"><span class="n">Manvi</span><span class="k">Raichur District Branch</span></div>
+      <div class="stat"><span class="n">Infra</span><span class="k">&amp; Building Completion</span></div>
+    </div>
+  </div>
+
+  <section id="projects">
+    <div class="wrap">
+      <p class="sheet-no">SHEET <b>05</b> / 06 &mdash; SELECTED WORK</p>
+      <div class="section-head">
+        <h2>Project gallery</h2>
+        <p>Placeholder entries &mdash; swap in real project names, locations and photos.</p>
+      </div>
+      <div class="project-grid">
+        <div class="project-card">
+          <div class="project-art"><span class="tagline">Road Works</span></div>
+          <div class="project-body">
+            <h3>District Road Upgrade</h3>
+            <p>Sample entry &mdash; formation &amp; bituminous resurfacing, Raichur district.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-art"><span class="tagline">Building Completion</span></div>
+          <div class="project-body">
+            <h3>Public Building Finishing</h3>
+            <p>Sample entry &mdash; RCC completion and fit-out, Manvi.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-art"><span class="tagline">Civil Contract</span></div>
+          <div class="project-body">
+            <h3>Tendered Infrastructure Work</h3>
+            <p>Sample entry &mdash; government civil works package.</p>
+          </div>
+        </div>
+      </div>
+      <p class="sample-note">Note: the three cards above are placeholders. Replace names, locations and photos with real completed or ongoing projects before this site goes live.</p>
+    </div>
+  </section>
+
+  <section id="contact" style="background:var(--surface);border-top:1px solid var(--border);">
+    <div class="wrap">
+      <p class="sheet-no">SHEET <b>06</b> / 06 &mdash; GET IN TOUCH</p>
+      <div class="section-head">
+        <h2>Request a quote</h2>
+        <p>Tell us about the contract or project &mdash; our team will get back to you.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-list">
+          <div class="contact-item">
+            <div class="ic">@</div>
+            <div>
+              <h3>Email</h3>
+              <p>info@mecoconstruction.in <span class="ph">(sample)</span></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ic">#</div>
+            <div>
+              <h3>Phone</h3>
+              <p>+91 98XXX XXXXX <span class="ph">(sample)</span></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ic">&#9670;</div>
+            <div>
+              <h3>Branch Office</h3>
+              <p>Raichur Road, Manvi, Raichur District, Karnataka &ndash; 584123 <span class="ph">(PIN sample &mdash; confirm exact)</span></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="ic">&#9679;</div>
+            <div>
+              <h3>Office Hours</h3>
+              <p>Mon &ndash; Sat, 9:30 AM &ndash; 6:30 PM IST</p>
+            </div>
+          </div>
+        </div>
+        <form class="quote" id="quoteForm">
+          <div class="row">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your full name" required>
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" placeholder="+91 ..." required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required>
+          </div>
+          <div class="field">
+            <label for="service">Type of work</label>
+            <select id="service" name="service">
+              <option>Road &amp; Highway Construction</option>
+              <option>Building Construction &amp; Completion</option>
+              <option>General Civil / Government Contract</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Project details</label>
+            <textarea id="message" name="message" placeholder="Location, scope, timeline..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Enquiry</button>
+          <p class="form-note">This form is a static UI only. Connect it to a form service (e.g. Formspree, Netlify Forms) or your email/CRM before publishing, so enquiries are actually received.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap footer-grid">
+    <p class="legal"><b>Meco Construction &amp; Infratech Private Limited.</b> Incorporated September 2021. Branch office: Manvi, Raichur District, Karnataka, India. &copy; <span id="year"></span> Meco Construction &amp; Infratech Pvt. Ltd. All rights reserved.</p>
+    <div class="footer-meta">
+      <div><b>Registered</b>Karnataka, India</div>
+      <div><b>Sector</b>Infrastructure &amp; Building</div>
+      <div><b>Since</b>2021</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  var menuBtn = document.getElementById('menuBtn');
+  var navLinks = document.getElementById('nav-links');
+  menuBtn.addEventListener('click', function () {
+    var open = navLinks.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  navLinks.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      navLinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  document.getElementById('quoteForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    alert('This is a demo form. Wire it up to a form backend (Formspree, Netlify Forms, email API, etc.) before going live.');
+  });
+</script>
+</body>
+</html>
